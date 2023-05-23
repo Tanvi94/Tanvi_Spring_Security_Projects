@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.luv2code</groupId>
-	<artifactId>spring-security-demo</artifactId>
+	<artifactId>spring-security-demo-01-base-app</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
@@ -11,6 +11,7 @@
 
 	<properties>
 		<springframework.version>5.0.2.RELEASE</springframework.version>
+		<springsecurity.version>5.0.0.RELEASE</springsecurity.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -24,7 +25,16 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		
+		<!-- Spring Security -->
+		<!-- Spring-security-web and spring-security-config -->
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-web</artifactId>
+    		<version>5.0.0.RELEASE</version>
+		</dependency>
 
+		
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -63,7 +73,7 @@
 	<!-- TO DO: Add support for Maven WAR Plugin -->
 	
 	<build>
-		<finalName>spring-security-demo</finalName>
+		<finalName>spring-security-demo-01-base-app</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
