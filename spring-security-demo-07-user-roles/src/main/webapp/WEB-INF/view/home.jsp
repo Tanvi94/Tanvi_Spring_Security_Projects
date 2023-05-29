@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -25,17 +26,23 @@
 	</p>
 	<hr>
 	
+	<security:authorize access="hasRole('MANAGER')">
+	
 	<!-- Add a link to point to /leaders.. this is for the managers -->
 	<p>
 		<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
-		(Only For Manager peeps)
 	</p>
+	
+	</security:authorize>
+	
+	<security:authorize access="hasRole('ADMIN')">
 	
 	<!-- Add a link to point to /systems.. this is for the admins -->
 	<p>
 		<a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
-		(Only For Admin peeps)
 	</p>
+	
+	</security:authorize>
 	
 	<!-- Add logout support -->
 	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
